@@ -1,0 +1,67 @@
+﻿@model Labb4_MVC.Models.Customer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+    </dl>
+    <hr />
+    @foreach (var item in Model.Borrowings)
+    {
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.Book.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Book.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.BorrowedDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.BorrowedDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.ReturnDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.ReturnDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.IsReturned)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.IsReturned)
+            </dd>
+        </dl>
+    }
+
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CustomerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
